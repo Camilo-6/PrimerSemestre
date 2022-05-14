@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+
+\addtolength{\hoffset}{-2cm}
+\addtolength{\textwidth}{4cm}
+\addtolength{\voffset}{-2.5cm}
+\addtolength{\textheight}{5cm}
+\pagestyle{empty}
+
+\usepackage{adjustbox}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \bf  Estructuras Discretas}\\
+
+\
+
+\underline{{\bf Práctica 2. Circuitos}}
+
+\
+
+Profesor: C\'esar Hern\'andez.
+
+\
+
+Ayudantes: Gisselle Ibarra Moreno \\
+           Alma Roc\'io S\'anchez Salgado
+
+\
+
+Integrantes: José Camilo García Ponce
+
+\
+
+\end{center}
+
+\begin{enumerate}
+
+  \item {\bf Circuito para sumar dos números de 3 bits.} \\
+  	El circuito se encuentra en el archivo: $1\_suma\_tres\_bits.circ$ .\\
+  	Hay dos circuitos "finales" uno solo siendo el circuito y otro acomodado algo bonito para poder hacer "pruebas".
+  	
+  \item {\bf Circuito del elevador.}
+  	\begin{itemize}
+  		\item Tabla
+  			\begin{table}[h!]
+  				\centering
+  				\begin{tabular}{|c|c|c|c|c|}
+  					\hline
+  					$M$ & $F_1$ & $F_2$ & $F_3$ & Salida \\ \hline
+  					0 & 0  & 0  & 0  & 0      \\ \hline
+  					0 & 0  & 0  & 1  & 1      \\ \hline
+  					0 & 0  & 1  & 0  & 1      \\ \hline
+  					0 & 0  & 1  & 1  & 0      \\ \hline
+  					0 & 1  & 0  & 0  & 1      \\ \hline
+  					0 & 1  & 0  & 1  & 0      \\ \hline
+  					0 & 1  & 1  & 0  & 0      \\ \hline
+  					0 & 1  & 1  & 1  & 0      \\ \hline
+  					1 & 0  & 0  & 0  & 0      \\ \hline
+  					1 & 0  & 0  & 1  & 0      \\ \hline
+  					1 & 0  & 1  & 0  & 0      \\ \hline
+  					1 & 0  & 1  & 1  & 0      \\ \hline
+  					1 & 1  & 0  & 0  & 0      \\ \hline
+  					1 & 1  & 0  & 1  & 0      \\ \hline
+  					1 & 1  & 1  & 0  & 0      \\ \hline
+  					1 & 1  & 1  & 1  & 0      \\ \hline
+  				\end{tabular}
+  			\end{table}
+  		\item Expresión FND \\
+  			$f(M,F_1,F_2,F_3) = (\overline{M}\cdot\overline{F_1}\cdot\overline{F_2}\cdot F_3) + (\overline{M}\cdot\overline{F_1}\cdot F_2\cdot\overline{F_3}) + (\overline{M}\cdot F_1\cdot\overline{F_2}\cdot\overline{F_3})$
+  		\item Mapa de Karnauhg \\
+  			\begin{table}[h!]
+  				\centering
+  				\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+  					\hline
+  					& $F_1F_2F_3$ & $F_1F_2\overline{F_3}$ & $F_1\overline{F_2}\overline{F_3}$ & $F_1\overline{F_2}F_3$ & $\overline{F_1}\overline{F_2}F_3$ & $\overline{F_1}\overline{F_2}\overline{F_3}$ & $\overline{F_1}F_2\overline{F_3}$ & $\overline{F_1}F_2F_3$ \\ \hline
+  					$M$  &        &         &          &         &          &           &          &         \\ \hline
+  					$\overline{M}$ &        &         & 1        &         & 1        &           & 1        &         \\ \hline
+  				\end{tabular}
+  			\end{table}
+  			*Al poner los complementos se juntan, una disculpa, no se porque aparecen juntos. \
+  			Como podemos ver no hay ninguno adyacente de otro, por lo tanto no podemos minimizar.
+  		\item Circuito \\
+  			El circuito se encuentra en el archivo: $2\_elevador.circ$ .
+  	\end{itemize}
+  \item {\bf Expresión del circuito dado}
+  	\begin{itemize}
+  		\item Expresión FND \\
+  			$f(x,y,z) = (x\cdot y\cdot z) + (x\cdot y\cdot \overline{z}) + (x\cdot \overline{y}\cdot z) + (\overline{x}\cdot \overline{y}\cdot z)$
+  		\item Mapa de Karnauhg \\
+  			\begin{table}[h!]
+  				\centering
+  				\begin{tabular}{|c|c|c|c|c|}
+  					\hline
+  					& $yz$ & $y\overline{z}$ & $\overline{y}\overline{z}$ & $\overline{y}z$ \\ \hline
+  					$x$  & 1  & 1   &      & 1   \\ \hline
+  					$\overline{x}$ &    &     &      & 1   \\ \hline
+  				\end{tabular}
+  			\end{table}
+  			*Al poner los complementos se juntan, una disculpa, no se porque aparecen juntos. \
+  		\item Álgebra \\
+  			$f(x,y,z) = ((x\cdot y\cdot z) + (x\cdot y\cdot \overline{z})) + ((\overline{x}\cdot \overline{y}\cdot z) + (x\cdot \overline{y}\cdot z))$ \\
+  			$f(x,y,z) = (x\cdot y)(z+\overline{z}) + (\overline{y}\cdot z)(x+\overline{x})$ \\
+  			$f(x,y,z) = (x\cdot y)(1) + (\overline{y}\cdot z)(1)$ \\
+  			$f(x,y,z) = (x\cdot y) + (\overline{y}\cdot z)$ \\
+  			$f(x,y,z) = (xy) + (\overline{y}z)$ 
+  		\item Circuito \\
+  			El circuito se encuentra en el archivo: $3\_circuito\_dado.circ$ .
+  	\end{itemize}
+  \item {\bf Caja fuerte}
+  	\begin{itemize}
+  		\item Tabla \\
+  			La configuración inicial es que todo esta apagado (0,0,0) \\
+  			Tenemos que cuando J = 1, cuando cambia de estado \\
+  			Tenemos que cuando L = 1, cuando cambia de estado \\
+  			Tenemos que cuando K = 1, esta prendido (cuando el banco esta abierto)\\
+  			
+  			\begin{table}[h!]
+  				\centering
+  				\begin{tabular}{|c|c|c|c|}
+  					\hline
+  					Switch $J$ & Switch $L$ & Time Lock $K$ & Com Lock $X$ \\ \hline
+  					0        & 0        & 0           & 0          \\ \hline
+  					0        & 0        & 1           & 1          \\ \hline
+  					0        & 1        & 0           & 0          \\ \hline
+  					0        & 1        & 1           & 0          \\ \hline
+  					1        & 0        & 0           & 0          \\ \hline
+  					1        & 0        & 1           & 0          \\ \hline
+  					1        & 1        & 0           & 0          \\ \hline
+  					1        & 1        & 1           & 1          \\ \hline
+  				\end{tabular}
+  			\end{table}
+  			Por lo tanto solo se puede acceder a la caja fuerte, cuando J y L tienen el mismo estado y X esta prendido (el banco esta abierto). \
+  		\item Expresión FND \\
+  			$f(J,L,K) = (J\cdot L\cdot K)+(\overline{J}\cdot \overline{L}\cdot K)$ \\
+  		\item Mapa de Karnaugh \\
+  			\begin{table}[h!]
+  				\centering
+  				\begin{tabular}{|c|c|c|c|c|}
+  					\hline
+  					& $LK$ & $L\overline{K}$ & $\overline{L}\overline{K}$ & $\overline{L}K$ \\ \hline
+  					$J$  & 1  &    &      &    \\ \hline
+  					$\overline{J}$ &    &     &      &  1  \\ \hline
+  				\end{tabular}
+  			\end{table}
+  			*Al poner los complementos se juntan, una disculpa, no se porque aparecen juntos. \
+  			Como podemos ver no hay ninguno adyacente de otro, por lo tanto no podemos minimizar.
+  		\item Circuito \\
+  			El circuito se encuentra en el archivo: $4\_candado.circ$ .
+  	\end{itemize}
+\end{enumerate}
+\end{document}
