@@ -1,0 +1,12 @@
+patito
+ Hola
+pio
+   Mundo
+gordito
+azulito   rojo
+      pollo
+  cocodrilo
+150
+16.8
+   79
+ 24
