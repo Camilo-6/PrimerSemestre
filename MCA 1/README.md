@@ -1,4 +1,4 @@
-# Matemáticas para las Ciencias Aplicadas I
+# Matemáticas para las Ciencias Aplicadas 1
 
 ### Profesor: Juan Carlos Balleza García
 
